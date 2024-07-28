@@ -13,6 +13,7 @@ import {
 import {useGetProductsQuery} from "@/redux/api/productApiSlice.ts";
 import {SkeletonCard} from "@/components/Loader.tsx";
 import Pagination from "@/components/Pagination.tsx";
+import {Product} from "@/types/Product.ts";
 
 interface ProductCardProps {
     products?: Product[];

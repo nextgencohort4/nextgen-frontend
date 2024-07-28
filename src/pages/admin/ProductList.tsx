@@ -8,6 +8,7 @@ import EditProductModal from "@/pages/admin/EditProductModal.tsx";
 import {useGetProductsQuery} from "@/redux/api/productApiSlice.ts";
 import {SkeletonCard} from "@/components/Loader.tsx";
 import RevelOnScroll from "@/components/RevealOnScroll.tsx";
+import {Product} from "@/types/Product.ts";
 
 const ProductList: React.FC = () => {
     const [currentPage, setCurrentPage] = useState(1);

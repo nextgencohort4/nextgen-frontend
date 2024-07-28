@@ -13,6 +13,7 @@ import {Button} from "@/components/ui/button.tsx";
 import {toast} from "react-toastify";
 import {toastConfig} from "@/components/toastConfig.ts";
 import RevelOnScroll from "@/components/RevealOnScroll.tsx";
+import {Product} from "@/types/Product.ts";
 
 interface EditProductModalProps {
     children: React.ReactNode;
