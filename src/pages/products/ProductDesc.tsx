@@ -168,7 +168,7 @@ const ProductDesc: React.FC = () => {
                                     <p
                                         key={index}
                                         className={`w-[38px] h-[38px] cursor-pointer border ${
-                                            selectedSize === size ? "border-black bg-black text-white" : "border-gray-500 bg-[#fbe6dd]"
+                                            selectedSize === size ? "border-black bg-black text-white" : "border-gray-500 bg-[#fbe6dd] dark:bg-gray-800 dark:text-white"
                                         } flex items-center justify-center font-bold rounded-full`}
                                         onClick={() => setSelectedSize(size)}
                                     >
@@ -195,11 +195,13 @@ const ProductDesc: React.FC = () => {
 
                         {/* Action buttons */}
                         <div className="flex flex-col sm:flex-row items-center gap-3 mt-6">
-                            <Button className="bg-black hover:bg-black font-bold w-full sm:w-auto"
-                                    onClick={handleAddToCart}>
+                            <Button
+                                className="bg-black dark:bg-gray-800 dark:text-white hover:bg-black font-bold w-full sm:w-auto"
+                                onClick={handleAddToCart}>
                                 Add to Cart
                             </Button>
-                            <Button className="bg-[#ff6b2d] hover:bg-[#ff6b2d] font-bold w-full sm:w-auto">
+                            <Button
+                                className="bg-[#ff6b2d] dark:text-white hover:bg-[#ff6b2d] font-bold w-full sm:w-auto">
                                 Buy Now
                             </Button>
                         </div>

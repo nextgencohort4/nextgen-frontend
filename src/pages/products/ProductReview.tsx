@@ -144,7 +144,7 @@ const ProductReview = () => {
                                 <div className="mb-2">
                                     <label htmlFor="rating" className="block mb-1">Rating</label>
                                     <Select onValueChange={(value) => setRating(Number(value))}>
-                                        <SelectTrigger className="w-full">
+                                        <SelectTrigger className="w-full dark:text-white">
                                             <SelectValue placeholder="Select a rating..."/>
                                         </SelectTrigger>
                                         <SelectContent>
@@ -162,7 +162,7 @@ const ProductReview = () => {
                                         id="comment"
                                         value={comment}
                                         onChange={(e) => setComment(e.target.value)}
-                                        className="w-full p-2 border rounded"
+                                        className="w-full p-2 border rounded dark:text-white"
                                         rows={3}
                                     />
                                 </div>

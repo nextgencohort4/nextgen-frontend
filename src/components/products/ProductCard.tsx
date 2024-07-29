@@ -62,7 +62,7 @@ const ProductCard: React.FC<ProductCardProps> = ({products: propProducts}) => {
         <div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {currentItems.map((product: Product) => (
-                    <div key={product._id} className="bg-[#ffe4cc] shadow rounded-xl px-5 py-3">
+                    <div key={product._id} className="bg-[#ffe4cc] dark:bg-gray-800 shadow rounded-xl px-5 py-3">
                         <Link to={`/product/${product._id}`}>
                             <div className="overflow-hidden w-full relative group rounded-lg">
                                 <LazyImage
@@ -75,31 +75,31 @@ const ProductCard: React.FC<ProductCardProps> = ({products: propProducts}) => {
 
                         <div className="flex flex-col gap-2 pt-2">
                             <div className="flex justify-between items-center">
-                                <h2 className="font-bold">{product.name.substring(0, 25)}...</h2>
+                                <h2 className="font-bold text-black dark:text-white">{product.name.substring(0, 25)}...</h2>
                                 <button onClick={() => toggleFavorite(product)}>
                                     {favorites.some(fav => fav._id === product._id) ? (
                                         <FaHeart className="text-red-500" size={25}/>
                                     ) : (
                                         <CiHeart
-                                            className="bg-[#ffd4b7] text-[#ff8855] rounded-full font-bold"
+                                            className="bg-[#ffd4b7] text-[#ff8855] dark:bg-gray-700 dark:text-gray-300 rounded-full font-bold"
                                             size={25}
                                         />
                                     )}
                                 </button>
                             </div>
 
-                            <h2 className="font-bold">
+                            <h2 className="font-bold text-black dark:text-white">
                                 ₦ {product.discount_price || product.price}
                                 {product.discount_price && (
-                                    <span className="ml-2 text-sm line-through text-gray-500">
+                                    <span className="ml-2 text-sm line-through text-gray-500 dark:text-gray-400">
                                         ₦ {product.price}
                                     </span>
                                 )}
                             </h2>
 
                             <div className="flex justify-between items-center">
-                                <h2 className="font-bold">View details</h2>
-                                <IoIosArrowRoundForward className="" size={25}/>
+                                <h2 className="font-bold text-black dark:text-white">View details</h2>
+                                <IoIosArrowRoundForward className="text-black dark:text-white" size={25}/>
                             </div>
                         </div>
                     </div>

@@ -270,7 +270,7 @@ const Cart: React.FC = () => {
 
                             <div className="flex flex-col gap-3 w-full lg:w-2/5">
                                 <Button
-                                    className="w-full bg-[#FF773E] hover:bg-[#FF773E] shadow-md rounded-xl font-bold"
+                                    className="w-full bg-[#FF773E] dark:text-white hover:bg-[#FF773E] shadow-md rounded-xl font-bold"
                                     onClick={handleCheckout}
                                 >
                                     CHECKOUT
@@ -366,7 +366,7 @@ const Cart: React.FC = () => {
                                     </div>
 
                                     <Button
-                                        className="w-full bg-[#FF773E] hover:bg-[#FF773E] shadow-md rounded-xl font-bold"
+                                        className="w-full bg-[#FF773E] dark:text-white hover:bg-[#FF773E] shadow-md rounded-xl font-bold"
                                         onClick={handleCheckout}
                                     >
                                         CHECKOUT

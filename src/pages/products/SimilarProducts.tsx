@@ -55,7 +55,7 @@ const SimilarProducts = () => {
     return (
         <Container>
             <div className="flex flex-col gap-3">
-                <h1 className="text-3xl md:text-4xl lg:text-[40px] leading-tight">
+                <h1 className="text-3xl md:text-4xl lg:text-[40px] leading-tight pt-10">
                     Similar <span className="text-[#f46e18]">Products</span> you might like
                 </h1>
                 <div className="my-5">

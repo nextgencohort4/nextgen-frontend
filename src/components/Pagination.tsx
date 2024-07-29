@@ -26,7 +26,7 @@ const Pagination: React.FC<PaginationProps> = ({currentPage, totalPages, onPageC
                     />
                 </PaginationItem>
                 {[...Array(totalPages)].map((_, index) => (
-                    <PaginationItem key={index} className="mx-1">
+                    <PaginationItem key={index} className="mx-1 text-black dark:text-white">
                         <PaginationLink
                             href="#"
                             onClick={() => onPageChange(index + 1)}
@@ -36,7 +36,7 @@ const Pagination: React.FC<PaginationProps> = ({currentPage, totalPages, onPageC
                         </PaginationLink>
                     </PaginationItem>
                 ))}
-                <PaginationItem className="mx-1">
+                <PaginationItem className="mx-1 text-black dark:text-white">
                     <PaginationNext
                         href="#"
                         onClick={() => onPageChange(Math.min(totalPages, currentPage + 1))}

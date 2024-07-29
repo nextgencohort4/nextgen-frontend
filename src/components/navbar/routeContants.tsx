@@ -59,9 +59,10 @@ export const QueryItems: React.FC<QueryItemsProps> = ({onLinkClick}) => {
     return (
         <div className="lg:flex items-center">
             <form onSubmit={handleSearch} className="relative lg:px-10">
-                <IoSearchOutline className="absolute top-3 text-lg text-[#000] lg:left-12 left-5"/>
+                <IoSearchOutline
+                    className="absolute top-3 text-lg text-[#000] dark:bg-gray-800 dark:text-white lg:left-12 left-5"/>
                 <Input
-                    className="text-[#000] font-bold rounded-full lg:px-8 px-10"
+                    className="text-[#000] dark:bg-gray-800 dark:text-white font-bold rounded-full lg:px-8 px-10"
                     placeholder="Search"
                     value={searchQuery}
                     onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}

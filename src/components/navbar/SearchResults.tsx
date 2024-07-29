@@ -66,7 +66,7 @@ const SearchResults: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {results.map((product) => (
                         <Link to={`/product/${product._id}`} key={product._id}>
-                            <div className="bg-[#ffe4cc] shadow rounded-xl px-5 py-3 h-[29rem]">
+                            <div className="bg-[#ffe4cc] dark:bg-gray-800 shadow rounded-xl px-5 py-3 h-[29rem]">
                                 <div className="overflow-hidden w-full relative group rounded-lg">
                                     <LazyImage
                                         src={product.images[0]}
@@ -89,7 +89,7 @@ const SearchResults: React.FC = () => {
                                     <div className="flex flex-wrap gap-1">
                                         {product.colors.map((color, index) => (
                                             <span key={index}
-                                                  className="text-sm bg-white font-bold capitalize px-2 py-1">
+                                                  className="text-sm bg-white dark:text-black font-bold capitalize px-2 py-1">
                                                 {color}
                                             </span>
                                         ))}

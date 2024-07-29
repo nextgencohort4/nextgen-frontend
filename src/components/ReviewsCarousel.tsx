@@ -14,7 +14,7 @@ const ReviewsCarousel = () => {
                     <CarouselContent>
                         <CarouselItem className="md:basis-1/2 lg:basis-1/3">
                             <div
-                                className="flex flex-col  justify-center gap-3 bg-white rounded-xl p-5 w-full h-[250px]">
+                                className="flex flex-col justify-center gap-3 bg-white rounded-xl p-5 w-full h-[250px] dark:bg-gray-800 dark:text-white">
                                 <div className="flex gap-3 items-center">
                                     <LazyImage
                                         src={lady}
@@ -43,7 +43,7 @@ const ReviewsCarousel = () => {
                         </CarouselItem>
                         <CarouselItem className="md:basis-1/2 lg:basis-1/3">
                             <div
-                                className="flex flex-col justify-center  gap-3 bg-white rounded-xl p-5 w-full h-[250px]">
+                                className="flex flex-col justify-center  gap-3 bg-white rounded-xl p-5 w-full h-[250px] dark:bg-gray-800 dark:text-white">
                                 <div className="flex gap-3 items-center">
                                     <LazyImage
                                         src={man}
@@ -73,7 +73,7 @@ const ReviewsCarousel = () => {
                         </CarouselItem>
                         <CarouselItem className="md:basis-1/2 lg:basis-1/3">
                             <div
-                                className="flex flex-col  justify-center gap-3 bg-white rounded-xl p-5 w-full h-[250px]">
+                                className="flex flex-col  justify-center gap-3 bg-white rounded-xl p-5 w-full h-[250px] dark:bg-gray-800 dark:text-white">
                                 <div className="flex gap-3 items-center">
                                     <LazyImage
                                         src={lady}
@@ -102,7 +102,7 @@ const ReviewsCarousel = () => {
                         </CarouselItem>
                         <CarouselItem className="md:basis-1/2 lg:basis-1/3">
                             <div
-                                className="flex flex-col justify-center  gap-3 bg-white rounded-xl p-5 w-full h-[250px]">
+                                className="flex flex-col justify-center  gap-3 bg-white rounded-xl p-5 w-full h-[250px] dark:bg-gray-800 dark:text-white">
                                 <div className="flex gap-3 items-center">
                                     <LazyImage
                                         src={man}

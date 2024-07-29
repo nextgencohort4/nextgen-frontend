@@ -1,3 +1,4 @@
+import React from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
 import NavItems from "./NavItems.tsx";
@@ -16,6 +17,7 @@ import {RootState} from "@/redux/store.ts";
 import {logout} from "@/redux/features/authSlice.ts";
 import {toast} from "react-toastify";
 import {toastConfig} from "@/components/toastConfig.ts";
+import ModeToggle from "@/components/ModeToggle.tsx";
 
 interface User {
     email: string;
@@ -32,7 +34,7 @@ interface UserInfo {
     user: User;
 }
 
-const Navigation = () => {
+const Navigation: React.FC = () => {
     const {userInfo} = useSelector((state: RootState) => state.auth) as { userInfo: UserInfo | null };
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -52,7 +54,7 @@ const Navigation = () => {
     const isAdmin = userInfo?.user.role === "admin";
 
     return (
-        <div className="sticky top-0 z-20 bg-[#000] text-white shadow">
+        <div className="sticky top-0 z-20 bg-[#000] dark:bg-gray-900 text-white shadow">
             <Container className="flex items-center justify-between py-3">
                 <Logo/>
                 <div className="flex flex-row items-center justify-end gap-4 lg:gap-6 xl:gap-10 flex-grow">
@@ -63,20 +65,21 @@ const Navigation = () => {
                         <div>
                             <DropdownMenu>
                                 <DropdownMenuTrigger>
-                                    <span className="whitespace-nowrap text-sm lg:text-base">
+                                    <span className="whitespace-nowrap text-sm lg:text-base text-white">
                                         {userInfo ? `Hello, ${userInfo.user.firstName}` : "Join | Sign In"}
                                     </span>
                                 </DropdownMenuTrigger>
-                                <DropdownMenuContent>
+                                <DropdownMenuContent className="bg-white dark:bg-gray-800">
                                     {userInfo ? (
                                         <>
                                             <Link className="font-bold" to="/profile">
-                                                <DropdownMenuItem className="cursor-pointer capitalize">
+                                                <DropdownMenuItem
+                                                    className="cursor-pointer capitalize text-black dark:text-white">
                                                     Profile
                                                 </DropdownMenuItem>
                                             </Link>
                                             <DropdownMenuItem
-                                                className="cursor-pointer capitalize font-bold"
+                                                className="cursor-pointer capitalize font-bold text-black dark:text-white"
                                                 onClick={handleLogout}>
                                                 Logout
                                             </DropdownMenuItem>
@@ -85,12 +88,14 @@ const Navigation = () => {
                                                 <>
                                                     <DropdownMenuSeparator/>
                                                     <Link className="font-bold" to="/admin/add-product">
-                                                        <DropdownMenuItem className="cursor-pointer capitalize">
+                                                        <DropdownMenuItem
+                                                            className="cursor-pointer capitalize text-black dark:text-white">
                                                             Add Product
                                                         </DropdownMenuItem>
                                                     </Link>
                                                     <Link className="font-bold" to="/admin/product-list">
-                                                        <DropdownMenuItem className="cursor-pointer capitalize">
+                                                        <DropdownMenuItem
+                                                            className="cursor-pointer capitalize text-black dark:text-white">
                                                             Product List
                                                         </DropdownMenuItem>
                                                     </Link>
@@ -99,7 +104,8 @@ const Navigation = () => {
                                         </>
                                     ) : (
                                         <Link className="font-bold" to="/login">
-                                            <DropdownMenuItem className="cursor-pointer capitalize">
+                                            <DropdownMenuItem
+                                                className="cursor-pointer capitalize text-black dark:text-white">
                                                 Get Started
                                             </DropdownMenuItem>
                                         </Link>
@@ -112,6 +118,7 @@ const Navigation = () => {
                     <div className="lg:block hidden">
                         <QueryItems/>
                     </div>
+                    <ModeToggle/>
                 </div>
             </Container>
         </div>

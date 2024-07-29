@@ -344,13 +344,13 @@ const Checkout = () => {
 
                         <div className="flex md:flex-row flex-col gap-1">
                             <Input
-                                className="border border-gray-500 w-full text-black"
+                                className="border border-gray-500 w-full text-black dark:text-white"
                                 type="text"
                                 value={voucherCode}
                                 onChange={(e) => setVoucherCode(e.target.value)}
                                 placeholder="Discount code or gift card"
                             />
-                            <Button className="bg-[#ADB0B0] hover:bg-[#ADB0B0] font-bold">
+                            <Button className="bg-[#ADB0B0] hover:bg-[#ADB0B0] font-bold dark:text-white">
                                 Apply
                             </Button>
                         </div>
