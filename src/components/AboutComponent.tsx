@@ -26,7 +26,7 @@ const AboutComponent = () => {
                         </p>
 
                         <Link to="/shop">
-                            <Button className="bg-[#E0551B] hover:bg-[#E0551B] w-[98px]">
+                            <Button className="bg-[#E0551B] hover:bg-[#E0551B] dark:text-white font-bold w-[98px]">
                                 Explore more
                             </Button>
                         </Link>

@@ -17,7 +17,7 @@ const HeroSection = () => {
                             Step into comfort and style with our <br/> premium selection of footwear.
                         </p>
                         <Link to="/shop">
-                            <Button className="bg-[#E0551B] hover:bg-[#E0551B] w-[98px]">
+                            <Button className="bg-[#E0551B] dark:text-white font-bold hover:bg-[#E0551B] w-[98px]">
                                 Shop Now
                             </Button>
                         </Link>
