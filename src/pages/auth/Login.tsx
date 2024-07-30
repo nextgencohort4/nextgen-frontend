@@ -95,7 +95,11 @@ const Login = () => {
                                     className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
                                     onClick={togglePasswordVisibility}
                                 >
-                                    {showPassword ? <AiOutlineEyeInvisible size={20}/> : <AiOutlineEye size={20}/>}
+                                    {showPassword ?
+                                        <AiOutlineEyeInvisible className="dark:text-white" size={20}/>
+                                        :
+                                        <AiOutlineEye className="dark:text-white" size={20}/>
+                                    }
                                 </button>
                             </div>
                         </div>
@@ -103,7 +107,7 @@ const Login = () => {
                         <div className="flex flex-col md:flex-row justify-between items-center mb-6">
                             <Button
                                 disabled={isLoading}
-                                className="bg-[#FF773E] hover:bg-[#FF773E] font-bold w-full md:w-auto mb-4 md:mb-0"
+                                className="bg-[#FF773E] dark:text-white hover:bg-[#FF773E] font-bold w-full md:w-auto mb-4 md:mb-0"
                                 type="submit"
                             >
                                 {isLoading ? "Logging in..." : "Login"}
@@ -113,7 +117,7 @@ const Login = () => {
                                 <span className="font-bold text-xs">New Customer?</span>
                                 <Link
                                     to={redirect ? `/register?redirect=${redirect}` : "/register"}
-                                    className="ml-1 text-gray-500 hover:underline"
+                                    className="ml-1 text-gray-500 dark:text-white hover:underline"
                                 >
                                     Create Account
                                 </Link>

@@ -118,7 +118,7 @@ const EditProductModal: React.FC<EditProductModalProps> = ({children, product, o
                 <RevelOnScroll>
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <div>
-                            <label className="block mb-2 text-sm font-medium text-gray-900">
+                            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                 Upload Images
                                 <Input
                                     type="file"
@@ -184,7 +184,7 @@ const EditProductModal: React.FC<EditProductModalProps> = ({children, product, o
                             className="border border-gray-500"
                         />
                         <Button
-                            className="w-full bg-[#FF773E] hover:bg-[#FF773E] font-bold"
+                            className="w-full bg-[#FF773E] hover:bg-[#FF773E] font-bold dark:text-white"
                             type="submit"
                             disabled={isUpdating}
                         >

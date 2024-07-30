@@ -102,7 +102,8 @@ const AddProduct = () => {
                                         </div>
                                     )}
 
-                                    <label className="hover:underline font-bold text-gray-700 cursor-pointer">
+                                    <label
+                                        className="hover:underline font-bold text-gray-700 dark:text-white cursor-pointer">
                                         Upload Images
                                         <Input
                                             type="file"
