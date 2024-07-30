@@ -132,7 +132,9 @@ const Navigation = () => {
                     <div className="lg:block hidden">
                         <QueryItems/>
                     </div>
-                    <ModeToggle/>
+                    <div className="lg:block hidden">
+                        <ModeToggle/>
+                    </div>
                 </div>
             </Container>
         </div>

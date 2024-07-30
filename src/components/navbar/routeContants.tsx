@@ -6,6 +6,7 @@ import {FaRegHeart} from "react-icons/fa";
 import {MdOutlineShoppingCart} from "react-icons/md";
 import {Input} from "@/components/ui/input.tsx";
 import {CartItem} from "@/types/Cart.ts";
+import ModeToggle from "@/components/theme-provider/ModeToggle.tsx";
 
 // Define the structure of the Redux state
 interface RootState {
@@ -68,7 +69,7 @@ export const QueryItems: React.FC<QueryItemsProps> = ({onLinkClick}) => {
                     onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
                 />
             </form>
-            <div className="flex gap-5 lg:mt-0 mt-5">
+            <div className="flex items-center gap-5 lg:mt-0 mt-5">
                 <Link to="/favorites" onClick={onLinkClick}>
                     <FaRegHeart size={25}/>
                 </Link>
@@ -81,6 +82,7 @@ export const QueryItems: React.FC<QueryItemsProps> = ({onLinkClick}) => {
                         </p>
                     )}
                 </Link>
+                <ModeToggle/>
             </div>
         </div>
     );
