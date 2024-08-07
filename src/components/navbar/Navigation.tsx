@@ -16,8 +16,8 @@ import {RootState} from "@/redux/store.ts";
 import {logout} from "@/redux/features/authSlice.ts";
 import {toast} from "react-toastify";
 import {toastConfig} from "@/components/toastConfig.ts";
-import ModeToggle from "@/components/theme-provider/ModeToggle.tsx";
 import {useEffect, useState} from "react";
+import {clearCartItems} from "@/redux/features/cartSlice.ts";
 
 interface User {
     email: string;
@@ -61,6 +61,7 @@ const Navigation = () => {
         document.cookie = "jwtToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
         dispatch(logout());
+        dispatch(clearCartItems());
         navigate("/");
 
         toast.success("Logged out successfully", toastConfig);
@@ -131,9 +132,6 @@ const Navigation = () => {
                     </div>
                     <div className="lg:block hidden">
                         <QueryItems/>
-                    </div>
-                    <div className="lg:block hidden">
-                        <ModeToggle/>
                     </div>
                 </div>
             </Container>

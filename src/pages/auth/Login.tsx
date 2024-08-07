@@ -12,13 +12,20 @@ import twitter from "@/assets/Group 49575.png";
 import {useDispatch, useSelector} from "react-redux";
 import {useLoginMutation} from "@/redux/api/userApiSlice.ts";
 import {RootState} from "@/redux/store.ts";
-import {setCredentials} from "@/redux/features/authSlice.ts";
+import {logout, setCredentials} from "@/redux/features/authSlice.ts";
 import {toast} from "react-toastify";
 import {toastConfig} from "@/components/toastConfig.ts";
 import {SkeletonDemo} from "@/components/Loader.tsx";
 import RevelOnScroll from "@/components/RevealOnScroll.tsx";
 
-const Login = () => {
+interface LoginError {
+    data?: {
+        message: string;
+    };
+    message: string;
+}
+
+const Login: React.FC = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
@@ -26,11 +33,11 @@ const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const [login, {isLoading}] = useLoginMutation();
+    const [login, { isLoading }] = useLoginMutation();
 
-    const {userInfo} = useSelector((state: RootState) => state.auth);
+    const { userInfo } = useSelector((state: RootState) => state.auth);
 
-    const {search} = useLocation();
+    const { search } = useLocation();
     const searchParam = new URLSearchParams(search);
     const redirect = searchParam.get("redirect") || "/";
 
@@ -40,16 +47,34 @@ const Login = () => {
         }
     }, [navigate, redirect, userInfo]);
 
+    useEffect(() => {
+        const checkTokenExpiration = () => {
+            if (userInfo && userInfo.token) {
+                const decodedToken = JSON.parse(atob(userInfo.token.split('.')[1]));
+                if (decodedToken.exp * 1000 < Date.now()) {
+                    dispatch(logout());
+                    navigate('/');
+                    toast.error("Your session has expired. Please log in again.", toastConfig);
+                }
+            }
+        };
+
+        const intervalId = setInterval(checkTokenExpiration, 60000); // Check every minute
+
+        return () => clearInterval(intervalId);
+    }, [userInfo, dispatch, navigate]);
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            const res = await login({email, password}).unwrap();
+            const res = await login({ email, password }).unwrap();
             console.log(res);
-            dispatch(setCredentials({...res}));
+            dispatch(setCredentials({ ...res }));
             navigate(redirect);
             toast.success("Login successful", toastConfig);
-        } catch (error: any) {
-            toast.error(error?.data?.message || error.message, toastConfig);
+        } catch (error: unknown) {
+            const loginError = error as LoginError;
+            toast.error(loginError?.data?.message || loginError.message, toastConfig);
         }
     };
 
