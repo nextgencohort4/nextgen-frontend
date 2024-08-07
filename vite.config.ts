@@ -7,7 +7,7 @@ export default defineConfig({
     server: {
         proxy: {
             "/api": {
-                target: "https://nextgen-shoes-backend.vercel.app",
+                target: "https://nextgen-shoes-backend-brown.vercel.app/api",
                 changeOrigin: true,
                 secure: false,
                 ws: true,
